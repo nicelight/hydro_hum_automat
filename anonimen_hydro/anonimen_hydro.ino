@@ -105,9 +105,11 @@ void setup() {
   while (!Serial);
   delay(10);
   dht.begin();
+  Serial.println("dht sensor started");
   delay(10);
   lcd.begin(16, 2);
   delay(10);
+  Serial.println("display started");
   lcd_intro();
   if ((t_min >= t_max) || (h_min >= h_max)) bad_settings_infinitly();
 }//setup
@@ -116,7 +118,7 @@ void setup() {
 void loop() {
   ms = millis();
   actions_handler();
-  lcd_handler()
+  lcd_handler();
 
 #ifdef DEBUG
   Serial.print("Hum: ");
